@@ -40,13 +40,17 @@ public class CustomAdapter extends ArrayAdapter {
         Contact currentItem = contactList.get(position);
         tvName.setText(currentItem.getName());
         char gender = currentItem.getGender();
-        if(gender == 'F')
+        if(gender == 'F' || gender == 'f')
         {
             ivGender.setImageResource(R.drawable.female);
         }
-        else
+        else if (gender == 'M' || gender == 'm')
         {
             ivGender.setImageResource(R.drawable.male);
+        }
+        else
+        {
+            ivGender.setVisibility(View.INVISIBLE);
         }
         tvCode.setText("+" + currentItem.getCountryCode());
         tvNum.setText(currentItem.getPhoneNumber() + "");
